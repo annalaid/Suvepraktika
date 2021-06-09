@@ -1,11 +1,32 @@
 <?php
 $database = "if20_pille_suvepraktika";
 
+function signup($firstname, $lastname, $email, $password)
+{
+    $notice = "";
+    $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
+    $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES(?,?,?,?)");
+    echo $conn->error;
+    //krüpteerime parooli
+    $options = ["cost" => 12, "salt" => substr(sha1(rand()), 0, 22)];
+    $pwdhash = password_hash($password, PASSWORD_BCRYPT, $options);
+
+    $stmt->bind_param("ssss", $firstname, $lastname, $email, $pwdhash);
+    if ($stmt->execute()) {
+        $notice = "ok";
+    } else {
+        $notice = $stmt->error;
+    }
+    $stmt->close();
+    $conn->close();
+    return $notice;
+}
+
 function signin($email, $password)
 {
     $notice = "";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
-    $stmt = $conn->prepare("SELECT password FROM vpusers WHERE email = ?");
+    $stmt = $conn->prepare("SELECT password FROM users WHERE email = ?");
     echo $conn->error;
     $stmt->bind_param("s", $email);
     $stmt->bind_result($passwordfromdb);
@@ -16,18 +37,7 @@ function signin($email, $password)
                 //mis kõik teha kui saigi õige parooli, sisselogimine:
                 $notice = "Olete sisseloginud!";
                 $stmt->close();
-
-                $stmt = $conn->prepare("SELECT users_id, firstname, lastname FROM users WHERE email = ?");
-                echo $conn->error;
-                $stmt->bind_param("s", $email);
-                $stmt->bind_result($idfromdb, $firstnamefromdb, $lastnamefromdb);
-                $stmt->execute();
-                $stmt->fetch();
-                //omistan loetud väärtused, sessiooni muutujatele
-                $_SESSION["userid"] = $idfromdb;
-                $_SESSION["userfirstname"] = $firstnamefromdb;
-                $_SESSION["userlastname"] = $lastnamefromdb;
-                $stmt->close();
+                $_SESSION["userid"] = 1;
                 header("Location: mainpage.php");
                 exit();
             } else {

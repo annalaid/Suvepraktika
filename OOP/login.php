@@ -42,25 +42,33 @@ if (isset($_POST["userdatasubmit"])) {
 }
 ?>
 <html lang="et">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    </head>
-    <body>
-        <section>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" media="screen" href="Styles/style.css">
+</head>
+
+<body>
+    <section>
         <main id="main-holder">
             <div class="head-photo">
                 <img src="media/head-logo.png" alt="head-logo">
             </div>
             <h1 id="login-header">Tere tulemast!</h1>
-            <input type="text" name="emailinput" id="email-field" class="login-form-field" placeholder="E-mail:" value="<?php echo $email; ?>"><span><?php echo $emailerror; ?></span>
-            <input type="password" name="passwordinput" id="password-field" class="login-form-field" placeholder="Parool:"><span><?php echo $passworderror; ?></span>
-            <input name="submituserdata" type="submit" value="Logi sisse!" id="login-form-submit"><span><?php echo "&nbsp; &nbsp; &nbsp;" .$notice; ?></span>
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <input type="e-mail" name="emailinput" id="emailinput" class="login-form-field" placeholder="E-mail:" value="<?php echo $email; ?>"><span><?php echo $emailerror; ?></span>
+            <br>
+            <input type="password" name="passwordinput" id="passwordinput" class="login-form-field" placeholder="Parool:"><span><?php echo $passworderror; ?></span>
+            <br>
+            <input type="submit" name="userdatasubmit" value="Logi sisse!" id="login-form-submit"><span><?php echo $notice; ?></span>
+            <br>
+            <a href="new_user.php">Loo kasutaja!</a>
             </form>
             <div class="head-photo">
                 <img src="media/TLU_logo.jpg" alt="footer-logo">
             </div>
         </main>
-        </section>
-    </body>
+    </section>
+</body>
+
 </html>
