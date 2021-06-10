@@ -3,7 +3,7 @@
 
 require_once "db.php";
 require("config.php");
-$sql = "SELECT firstname, lastname, uliopilaskood FROM student ORDER BY student_id DESC";
+$sql = "SELECT student_id, firstname, lastname, uliopilaskood FROM student ORDER BY student_id DESC";
 $result = mysqli_query($conn,$sql);
 
 
@@ -40,6 +40,7 @@ $classname="evenRow";
 else
 $classname="oddRow";
 ?>
+
 
 <tr class="<?php if(isset($classname)) echo $classname;?>">
 <td><input type="checkbox" name="student[]" value="<?php echo $row["student_id"]; ?>" ></td>
