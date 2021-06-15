@@ -1,9 +1,10 @@
+
 <?php
 
 
 require_once "db.php";
 require("config.php");
-$sql = "SELECT student_id, firstname, lastname, uliopilaskood FROM student ORDER BY student_id DESC";
+$sql = "SELECT student_id, firstname, lastname, uliopilaskood, email FROM student ORDER BY student_id DESC";
 $result = mysqli_query($conn,$sql);
 
 
@@ -26,10 +27,12 @@ $result = mysqli_query($conn,$sql);
 <td>Üliopilaskood</td>
 <td>Eesnimi</td>
 <td>Perekonnanimi</td>
-<td></td>
 <td>Tegevused</td>
 <td></td>
 <td></td>
+
+<td></td>
+
 </tr>
 
 <?php
@@ -39,6 +42,8 @@ if($i%2==0)
 $classname="evenRow";
 else
 $classname="oddRow";
+
+
 ?>
 
 
@@ -49,16 +54,44 @@ $classname="oddRow";
 <td><?php echo $row["lastname"]; ?></td>
 <td><a href="ChangeStudent.php?student_id=<?php echo $row["student_id"]; ?>" class="link"><img alt='Edit' title='Muuda' src='images/edit.png' width='15px' height='15px' hspace='10' /></a>
 <td><a href="GetStudent.php?student_id=<?php echo $row["student_id"]; ?>" class="link"><img alt='View' title='Kiirvaade' src='images/View.png' width='15px' height='15px' hspace='10' /> </a>
-<td><a href="Message.php?student_id=<?php echo $row["student_id"]; ?>" class="link"><img alt='Message' title='Teade' src='images/Message.png' width='15px' height='15px' hspace='10' /> </a>
+<td><a href="mailto:<?php echo $row["email"]; ?>" class="link"><img alt='Message' title='Teade' src='images/Message.png' width='15px' height='15px' hspace='10' /> </a>
 <td><a href="DeleteStudent.php?student_id=<?php echo $row["student_id"]; ?>"  class="link"><img alt='Delete' title='Kustuta' src='images/delete.png' width='15px' height='15px'hspace='10' /></a></td>
 </tr>
 
+
+
 <?php
+if (isset($_POST['send_message_btn'])) {
+	$name = $_POST['name'];
+	$email = $row['email'];
+	$subject = $_POST['subject'];
+	$msg = $_POST['msg'];
+   
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	$message = "<html>
+	<head>
+		<title>New message from website contact form</title>
+	</head>
+	<body>
+		<h1>" . $subject . "</h1>
+		<p>".$msg."</p>
+	</body>
+	</html>";
+	if (mail('website_owner@example.com', $subject, $message, $headers)) {
+	 echo "Email sent";
+	}else{
+	 echo "Failed to send email. Please try again later";
+	}
+  }
+
+
 $i++;
 }
 ?>
 <tr class="listheader">
 <td colspan="8"><input type="button" name="teade" value="Saada teade" onClick="settulebfunktsioon();" /> <input type="button" name="delete" value="Kustuta valitud"  onClick="setDeleteAction();" /></td>
+
 
 </tr>
 </table>
