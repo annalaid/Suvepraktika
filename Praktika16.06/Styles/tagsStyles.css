@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    margin-bottom: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+th {
+    padding-bottom: 20px;
+}
+
+table {
+    background-color: #f1f1f1;
+}
+
+.tags-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tags-view{
+    border-left: 1px solid black;
+    margin-left: 3vw;
+    align-items: center;
+}
+
+.tags-insert {
+    align-items: center;
+}
+
+.tags-form {
+    width: 100%;
+}
+
+.tags-form-table {
+    margin: auto;
+    width: 80%;
+}
+
+.form-item {
+    margin-top: 80px;
+    max-width: 600px;
+    min-width: 295px;
+    flex: 1 1 400px;
+    text-align: center;
+    justify-content: center;
+}
+
+.delete-button-img {
+    width: 20px;
+}
+
+.delete-button {
+    border: none;
+}
+
+#tag-submit {
+    width: 150px;
+    height: 40px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #179BD5;
+    cursor: pointer;
+    outline: none;
+    align-items: center;
+    margin-top: 20px;
+}

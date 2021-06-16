@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    height: 100%;
+    margin-bottom: 200px;
+    background-color: white;
+}
+
+h2 {
+    font-family: Calibri;
+    font-size: 25pt;
+    font-style: normal;
+    font-weight: bold;
+    color: #404040;
+    text-align: center;
+    text-decoration: unset;
+}
+
+.delete-button-img, .change-student-button-img,  .search-button-img, .email-button-img {
+    width: 20px;
+}
+
+.delete-button, .change-student-button,  .search-button, .email-button {
+    border: none;
+}
+
+th {
+    font-family: Calibri;
+    font-size: 15pt;
+    padding-bottom: 20px;
+    color: #404040;
+    background-color: #BDEA79;
+}
+
+.student-table {
+    text-align: left;
+}
+
+table {
+    font-family: Calibri;
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 100px;
+}
