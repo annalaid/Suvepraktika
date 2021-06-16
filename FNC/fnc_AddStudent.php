@@ -4,7 +4,6 @@ $database = "if20_pille_suvepraktika";
 
 
 function addstudent($firstname, $lastname, $email, $personal_email, $uliopilaskood) {
-    echo "algus";
     $conn = new mysqli($GLOBALS["serverhost"], $GLOBALS["serverusername"], $GLOBALS["serverpassword"], $GLOBALS["database"]);
     $stmt = $conn->prepare("SELECT firstname FROM student WHERE (firstname = ? AND lastname = ?)");
     //echo $conn->error;
@@ -29,6 +28,5 @@ function addstudent($firstname, $lastname, $email, $personal_email, $uliopilasko
     }
     $stmt->close();
     $conn->close();
-    echo "ots";
     return $notice;
 }

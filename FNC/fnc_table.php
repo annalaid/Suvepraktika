@@ -21,8 +21,8 @@ function readTagTable()
     if (!empty($lines)) {
         $notice = '<table class="tags-form-table">' . "\n";
         $notice .= "<tr> \n";
-        $notice .= '<th class"data-form-table-header">Kuvatud sildid &nbsp; </th>' . "\n";
-        $notice .= '<th class"data-form-table-header">Kustuta &nbsp; </th>' . "\n";
+        $notice .= '<th class="data-form-table-header">Kuvatud sildid &nbsp; </th>' . "\n";
+        $notice .= '<th class="data-form-table-header">Kustuta &nbsp; </th>' . "\n";
         $notice .= "</tr> \n";
         $notice .= $lines;
         $notice .= "</table> \n";
