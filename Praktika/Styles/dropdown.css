@@ -13,10 +13,6 @@ nav {
     justify-content: center;
 }
 
-hr {
-    color: #079696;
-    height: 2px;
-}
 
 .header {
     display: flex;

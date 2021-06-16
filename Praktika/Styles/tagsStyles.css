@@ -1,88 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial;
+    height: 100%;
+    margin-bottom: 200px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
 }
 
-input {
-    font-family: Arial;
-    font-size: 14px;
+h2 {
+    margin-bottom: 20px;
 }
 
-label {
-    font-family: Arial;
-    font-size: 14px;
-    color: #999999;
+th {
+    padding-bottom: 20px;
 }
 
-.tblListForm {
-    width: 500px; 
+table {
+    background-color: #f1f1f1;
 }
 
-.tblSaveForm {
-    border-top: 2px #999999 solid;
-    background-color: #f8f8f8;
+.tags-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.tableheader {
-    background-color: #079696;
+.tags-view{
+    border-left: 1px solid black;
+    margin-left: 3vw;
+    align-items: center;
 }
 
-.tablerow {
-    background-color: #55C491;
-    color: white;
+.tags-insert {
+    align-items: center;
 }
 
-.btnSubmit {
-    background-color: #fd9512;
-    padding: 5px;
-    border-color: #FF6600;
-    border-radius: 4px;
-    color: white;
-}
-
-.message {
-    color: #FF0000;
-    text-align: center;
+.tags-form {
     width: 100%;
 }
 
-.txtField {
-    padding: 5px;
-    border: #F9F871 1px solid;
-    border-radius: 4px;
+.tags-form-table {
+    margin: auto;
+    width: 80%;
 }
 
-.evenRow {
-    background-color: #E2EDF9;
-    font-size: 12px;
-    color: #101010;
+.form-item {
+    margin-top: 80px;
+    max-width: 600px;
+    min-width: 295px;
+    flex: 1 1 400px;
+    text-align: center;
+    justify-content: center;
 }
 
-.evenRow:hover {
-    background-color: #F9F871;
+.delete-button-img {
+    width: 20px;
 }
 
-.oddRow {
-    background-color: #B3E8FF;
-    font-size: 12px;
-    color: #101010;
+.delete-button {
+    border: none;
 }
 
-.oddRow:hover {
-    background-color: #F9F871;
-}
-
-.tblListForm {
-    border-top: 2px #999999 solid;
-}
-
-.listheader {
-    background-color: #fedc4d;
-    font-size: 12px;
+#tag-submit {
+    width: 150px;
+    height: 40px;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
     font-weight: bold;
-}
-
-.link {
-    text-decoration: none;
-    color: #5e8fc7;
-    font-size: 11px;
+    background-color: #179BD5;
+    cursor: pointer;
+    outline: none;
+    align-items: center;
+    margin-top: 20px;
 }

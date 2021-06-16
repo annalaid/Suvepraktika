@@ -1,9 +1,9 @@
 <?php
 require("Session/session.php");
+require("Webpiece/Htmlheader.php");
+echo "\n \t".'<link rel="stylesheet" type="text/css" media="screen" href="Styles/mainpageStyle.css">'."\n";
 require("Webpiece/Dropdown.php");
 ?>
-
-<link rel="stylesheet" type="text/css" media="screen" href="Styles/mainpageStyle.css">
 
 <div class="buttons">
     <div class="center-top">

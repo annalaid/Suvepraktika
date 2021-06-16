@@ -84,10 +84,11 @@ if (isset($_POST["filesubmit"])) {
 }
 
 //////lõpp
+require("Webpiece/Htmlheader.php");
+echo "\n \t".'<link rel="stylesheet" type="text/css" media="screen" href="Styles/addStudentStyle.css">'."\n";
+echo "\n \t".'<link rel="stylesheet" type="text/css" media="screen and (max-width: 1070px)" href="Styles/addStudentStyleNarrow.css">'."\n";
 require("Webpiece/Dropdown.php");
 ?>
-    <link rel="stylesheet" type="text/css" media="screen" href="Styles/addStudentStyle.css">
-    <link rel="stylesheet" type="text/css" media="screen and (max-width: 1070px)" href="Styles/addStudentStyleNarrow.css">
 
         <div class="forms-container">
             <div class="insert-form form-item">
