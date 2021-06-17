@@ -14,6 +14,8 @@ $result = mysqli_query($conn,$sql);
 <title>Tudengid</title>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 <script language="javascript" src="Student.js" type="text/javascript"></script>
+<script language="javascript" src="ChangeMultiple.js" type="text/javascript"></script>
+<script language="javascript" src="Message.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -30,9 +32,7 @@ $result = mysqli_query($conn,$sql);
 <td>Tegevused</td>
 <td></td>
 <td></td>
-
 <td></td>
-
 </tr>
 
 <?php
@@ -45,6 +45,7 @@ $classname="oddRow";
 
 
 ?>
+
 
 
 <tr class="<?php if(isset($classname)) echo $classname;?>">
@@ -61,40 +62,25 @@ $classname="oddRow";
 
 
 <?php
-if (isset($_POST['send_message_btn'])) {
-	$name = $_POST['name'];
-	$email = $row['email'];
-	$subject = $_POST['subject'];
-	$msg = $_POST['msg'];
-   
-	$headers = "MIME-Version: 1.0" . "\r\n";
-	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-	$message = "<html>
-	<head>
-		<title>New message from website contact form</title>
-	</head>
-	<body>
-		<h1>" . $subject . "</h1>
-		<p>".$msg."</p>
-	</body>
-	</html>";
-	if (mail('website_owner@example.com', $subject, $message, $headers)) {
-	 echo "Email sent";
-	}else{
-	 echo "Failed to send email. Please try again later";
-	}
-  }
-
 
 $i++;
 }
+
 ?>
+
+
+
 <tr class="listheader">
-<td colspan="8"><input type="button" name="teade" value="Saada teade" onClick="settulebfunktsioon();" /> <input type="button" name="delete" value="Kustuta valitud"  onClick="setDeleteAction();" /></td>
-
-
+<td colspan="8">
+<input type="button" name="delete" value="Saada teade"  onClick="setMessageAction();" /> 
+<input type="button" name="delete" value="Kustuta valitud"  onClick="setDeleteAction();" /> 
+<input type="button" name="update" value="Muuda valitud"  onClick="setUpdateAction();" /></td>
 </tr>
 </table>
 </form>
 </div>
+
+
+
+
 </body></html> 
